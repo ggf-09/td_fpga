@@ -1,0 +1,198 @@
+// lyric_table.vh — 由 doc/convert/lyric_gen.py 自动生成, 勿手改
+// 《反方向的钟》前100s: 15行, 91字, 流长139
+
+localparam [3:0] LYRIC_NONE = 4'hF;
+function [3:0] line_of_sec;
+    input [6:0] sec;
+    begin
+        if (sec < 7'd43) line_of_sec = LYRIC_NONE;
+        else if (sec < 7'd46) line_of_sec = 4'd0;
+        else if (sec < 7'd48) line_of_sec = 4'd1;
+        else if (sec < 7'd50) line_of_sec = 4'd2;
+        else if (sec < 7'd53) line_of_sec = 4'd3;
+        else if (sec < 7'd55) line_of_sec = 4'd4;
+        else if (sec < 7'd58) line_of_sec = 4'd5;
+        else if (sec < 7'd62) line_of_sec = 4'd6;
+        else if (sec < 7'd64) line_of_sec = 4'd7;
+        else if (sec < 7'd68) line_of_sec = 4'd8;
+        else if (sec < 7'd72) line_of_sec = 4'd9;
+        else if (sec < 7'd79) line_of_sec = 4'd10;
+        else if (sec < 7'd87) line_of_sec = 4'd11;
+        else if (sec < 7'd92) line_of_sec = 4'd12;
+        else if (sec < 7'd97) line_of_sec = 4'd13;
+        else if (sec < 7'd100) line_of_sec = 4'd14;
+        else line_of_sec = LYRIC_NONE;
+    end
+endfunction
+
+function [12:0] line_meta;
+    input [3:0] idx;
+    begin
+        case (idx)
+            4'd0: line_meta = {8'd0, 5'd9};
+            4'd1: line_meta = {8'd9, 5'd9};
+            4'd2: line_meta = {8'd18, 5'd8};
+            4'd3: line_meta = {8'd26, 5'd9};
+            4'd4: line_meta = {8'd35, 5'd9};
+            4'd5: line_meta = {8'd44, 5'd10};
+            4'd6: line_meta = {8'd54, 5'd14};
+            4'd7: line_meta = {8'd68, 5'd4};
+            4'd8: line_meta = {8'd72, 5'd11};
+            4'd9: line_meta = {8'd83, 5'd10};
+            4'd10: line_meta = {8'd93, 5'd12};
+            4'd11: line_meta = {8'd105, 5'd9};
+            4'd12: line_meta = {8'd114, 5'd9};
+            4'd13: line_meta = {8'd123, 5'd9};
+            4'd14: line_meta = {8'd132, 5'd7};
+            default: line_meta = {8'd0, 5'd0};
+        endcase
+    end
+endfunction
+
+function [7:0] char_at;
+    input [7:0] pos;
+    begin
+        case (pos)
+            8'd0: char_at = 8'd1;
+            8'd1: char_at = 8'd1;
+            8'd2: char_at = 8'd2;
+            8'd3: char_at = 8'd2;
+            8'd4: char_at = 8'd0;
+            8'd5: char_at = 8'd3;
+            8'd6: char_at = 8'd4;
+            8'd7: char_at = 8'd5;
+            8'd8: char_at = 8'd6;
+            8'd9: char_at = 8'd7;
+            8'd10: char_at = 8'd8;
+            8'd11: char_at = 8'd9;
+            8'd12: char_at = 8'd10;
+            8'd13: char_at = 8'd0;
+            8'd14: char_at = 8'd11;
+            8'd15: char_at = 8'd11;
+            8'd16: char_at = 8'd12;
+            8'd17: char_at = 8'd13;
+            8'd18: char_at = 8'd14;
+            8'd19: char_at = 8'd15;
+            8'd20: char_at = 8'd16;
+            8'd21: char_at = 8'd17;
+            8'd22: char_at = 8'd3;
+            8'd23: char_at = 8'd18;
+            8'd24: char_at = 8'd19;
+            8'd25: char_at = 8'd20;
+            8'd26: char_at = 8'd21;
+            8'd27: char_at = 8'd22;
+            8'd28: char_at = 8'd23;
+            8'd29: char_at = 8'd24;
+            8'd30: char_at = 8'd0;
+            8'd31: char_at = 8'd21;
+            8'd32: char_at = 8'd25;
+            8'd33: char_at = 8'd19;
+            8'd34: char_at = 8'd26;
+            8'd35: char_at = 8'd27;
+            8'd36: char_at = 8'd5;
+            8'd37: char_at = 8'd28;
+            8'd38: char_at = 8'd29;
+            8'd39: char_at = 8'd0;
+            8'd40: char_at = 8'd30;
+            8'd41: char_at = 8'd31;
+            8'd42: char_at = 8'd23;
+            8'd43: char_at = 8'd32;
+            8'd44: char_at = 8'd33;
+            8'd45: char_at = 8'd3;
+            8'd46: char_at = 8'd34;
+            8'd47: char_at = 8'd35;
+            8'd48: char_at = 8'd0;
+            8'd49: char_at = 8'd22;
+            8'd50: char_at = 8'd23;
+            8'd51: char_at = 8'd36;
+            8'd52: char_at = 8'd37;
+            8'd53: char_at = 8'd38;
+            8'd54: char_at = 8'd22;
+            8'd55: char_at = 8'd5;
+            8'd56: char_at = 8'd39;
+            8'd57: char_at = 8'd20;
+            8'd58: char_at = 8'd0;
+            8'd59: char_at = 8'd40;
+            8'd60: char_at = 8'd41;
+            8'd61: char_at = 8'd40;
+            8'd62: char_at = 8'd42;
+            8'd63: char_at = 8'd0;
+            8'd64: char_at = 8'd43;
+            8'd65: char_at = 8'd40;
+            8'd66: char_at = 8'd44;
+            8'd67: char_at = 8'd45;
+            8'd68: char_at = 8'd3;
+            8'd69: char_at = 8'd33;
+            8'd70: char_at = 8'd46;
+            8'd71: char_at = 8'd47;
+            8'd72: char_at = 8'd48;
+            8'd73: char_at = 8'd49;
+            8'd74: char_at = 8'd50;
+            8'd75: char_at = 8'd51;
+            8'd76: char_at = 8'd5;
+            8'd77: char_at = 8'd19;
+            8'd78: char_at = 8'd26;
+            8'd79: char_at = 8'd52;
+            8'd80: char_at = 8'd53;
+            8'd81: char_at = 8'd54;
+            8'd82: char_at = 8'd55;
+            8'd83: char_at = 8'd56;
+            8'd84: char_at = 8'd57;
+            8'd85: char_at = 8'd34;
+            8'd86: char_at = 8'd58;
+            8'd87: char_at = 8'd8;
+            8'd88: char_at = 8'd33;
+            8'd89: char_at = 8'd43;
+            8'd90: char_at = 8'd33;
+            8'd91: char_at = 8'd59;
+            8'd92: char_at = 8'd13;
+            8'd93: char_at = 8'd43;
+            8'd94: char_at = 8'd60;
+            8'd95: char_at = 8'd61;
+            8'd96: char_at = 8'd62;
+            8'd97: char_at = 8'd63;
+            8'd98: char_at = 8'd64;
+            8'd99: char_at = 8'd65;
+            8'd100: char_at = 8'd66;
+            8'd101: char_at = 8'd67;
+            8'd102: char_at = 8'd33;
+            8'd103: char_at = 8'd68;
+            8'd104: char_at = 8'd55;
+            8'd105: char_at = 8'd69;
+            8'd106: char_at = 8'd70;
+            8'd107: char_at = 8'd71;
+            8'd108: char_at = 8'd72;
+            8'd109: char_at = 8'd5;
+            8'd110: char_at = 8'd73;
+            8'd111: char_at = 8'd74;
+            8'd112: char_at = 8'd5;
+            8'd113: char_at = 8'd75;
+            8'd114: char_at = 8'd76;
+            8'd115: char_at = 8'd77;
+            8'd116: char_at = 8'd78;
+            8'd117: char_at = 8'd79;
+            8'd118: char_at = 8'd0;
+            8'd119: char_at = 8'd80;
+            8'd120: char_at = 8'd81;
+            8'd121: char_at = 8'd82;
+            8'd122: char_at = 8'd55;
+            8'd123: char_at = 8'd83;
+            8'd124: char_at = 8'd58;
+            8'd125: char_at = 8'd84;
+            8'd126: char_at = 8'd85;
+            8'd127: char_at = 8'd86;
+            8'd128: char_at = 8'd3;
+            8'd129: char_at = 8'd5;
+            8'd130: char_at = 8'd71;
+            8'd131: char_at = 8'd20;
+            8'd132: char_at = 8'd87;
+            8'd133: char_at = 8'd88;
+            8'd134: char_at = 8'd89;
+            8'd135: char_at = 8'd29;
+            8'd136: char_at = 8'd0;
+            8'd137: char_at = 8'd23;
+            8'd138: char_at = 8'd90;
+            default: char_at = 8'd0;
+        endcase
+    end
+endfunction

@@ -1,0 +1,23 @@
+{
+  "read": {
+    "baseline_cycles": 19083,
+    "optimized_cycles": 10587,
+    "baseline_us": 381.66,
+    "optimized_us": 211.74,
+    "time_reduction_percent": 44.52,
+    "throughput_ratio": 1.802
+  },
+  "write": {
+    "baseline_cycles": 19491,
+    "optimized_cycles": 11059,
+    "baseline_us": 389.82,
+    "optimized_us": 221.18,
+    "time_reduction_percent": 43.26,
+    "throughput_ratio": 1.762
+  },
+  "scope": "same 50MHz controller, native SD pins, same card model; excludes real card latency and total cover/startup time",
+  "font_payload_bytes": {
+    "baseline": 524288,
+    "optimized": 12288
+  }
+}

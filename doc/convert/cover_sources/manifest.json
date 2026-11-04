@@ -1,0 +1,37 @@
+{
+  "fetched_at": "2026-10-25T13:03:18.000288+00:00",
+  "tracks": {
+    "1": {
+      "track_id": 944321446,
+      "collection_id": 944321428,
+      "title": "手寫的從前",
+      "artist": "周杰倫",
+      "album": "哎呦, 不錯哦",
+      "page_url": "https://music.apple.com/tw/album/%E6%89%8B%E5%AF%AB%E7%9A%84%E5%BE%9E%E5%89%8D/944321428?i=944321446",
+      "artwork_url_100": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/16/db/ff/16dbff09-0750-29b0-07b7-3fa44f8a556e/dj.nzqvfsza.jpg/100x100bb.jpg",
+      "expected_width": 1200,
+      "expected_height": 1200,
+      "jpeg_sha256": "2b96a870d84a7d7ca6be8917cdda4c91f8c5c0584df1033863bef6547c62051d",
+      "jpeg_bytes": 521731,
+      "width": 1200,
+      "height": 1200,
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/16/db/ff/16dbff09-0750-29b0-07b7-3fa44f8a556e/dj.nzqvfsza.jpg/1200x1200bb.jpg"
+    },
+    "3": {
+      "track_id": 536009647,
+      "collection_id": 536009641,
+      "title": "楓",
+      "artist": "周杰倫",
+      "album": "11月的蕭邦",
+      "page_url": "https://music.apple.com/tw/album/%E6%A5%93/536009641?i=536009647",
+      "artwork_url_100": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9e/35/ad/9e35ad1e-749e-75b6-0539-1e80cea1817b/JAY11.jpg/100x100bb.jpg",
+      "expected_width": 1100,
+      "expected_height": 1200,
+      "jpeg_sha256": "2d7057ce8fe78ae356987cbbf44f6c064ae54fe1ff0112e50df0899e963331c5",
+      "jpeg_bytes": 184147,
+      "width": 1100,
+      "height": 1200,
+      "download_url": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9e/35/ad/9e35ad1e-749e-75b6-0539-1e80cea1817b/JAY11.jpg/1200x1200bb.jpg"
+    }
+  }
+}

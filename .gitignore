@@ -1,0 +1,12 @@
+# Tang Dynasty / FPGA build outputs (regenerable)
+*_Runs/
+src/td_project/out/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Editor settings
+.vs/
+.vscode/
+.idea/

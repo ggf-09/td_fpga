@@ -1,0 +1,3 @@
+`define EXT_LRC_SIZE 3893
+`define EXT_SECOND_SIZE 1408
+`define EXT_BOUND_SIZE 1896

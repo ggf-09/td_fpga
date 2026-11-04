@@ -1,0 +1,145 @@
+standard
+***Report Model: top Device: EG4S20BG256***
+
+IO Statistics
+#IO                        33   out of    188   17.55%
+  #input                   10
+  #output                  22
+  #inout                    1
+
+LUT Statistics
+#Total_luts             11257
+  #lut4                  6965
+  #lut5                  1575
+  #lut6                  2717
+  #lut5_mx41                0
+  #lut4_alu1b               0
+
+Utilization Statistics
+#lut                    17438   out of  19600   88.97%
+#reg                    10596   out of  19600   54.06%
+#bram                      48   out of     64   75.00%
+  #bram9k                  48
+  #fifo9k                   0
+#bram32k                    6   out of     16   37.50%
+#dsp                       15   out of     29   51.72%
+#pad                       37   out of    188   19.68%
+  #ireg                     7
+  #oreg                    21
+  #treg                     1
+#pll                        2   out of      4   50.00%
+#gclk                       2   out of     16   12.50%
+
+Report Hierarchy Area:
++------------------------------------------------------------------------------------------------------------------------------------------+
+|Instance                                  |Module                                            |lut     |ripple  |seq     |bram    |dsp     |
++------------------------------------------------------------------------------------------------------------------------------------------+
+|top                                       |top                                               |15934   |1504    |10625   |54      |15      |
+|  U3                                      |sdram                                             |89      |10      |418     |0       |0       |
+|    u2_ram                                |sdr_as_ram                                        |89      |10      |418     |0       |0       |
+|      u1_init_ref                         |sdr_init_ref                                      |27      |10      |81      |0       |0       |
+|      u2_wrrd                             |sdr_wrrd                                          |62      |0       |337     |0       |0       |
+|  sd_card_bmp_m0                          |sd_card_bmp                                       |4698    |345     |3754    |2       |2       |
+|    sd_card_top_m0                        |sd_card_top                                       |422     |31      |228     |0       |0       |
+|      sd_card_cmd_m0                      |sd_card_cmd                                       |232     |22      |90      |0       |0       |
+|      sd_card_sec_read_write_m0           |sd_card_sec_read_write                            |120     |0       |97      |0       |0       |
+|      spi_master_m0                       |spi_master                                        |70      |9       |41      |0       |0       |
+|    u_adapter                             |sd_sector_adapter                                 |53      |5       |42      |0       |0       |
+|    u_checkpoint                          |playback_checkpoint                               |735     |26      |238     |1       |0       |
+|    u_cover_pages                         |cover_page_controller                             |24      |0       |14      |0       |0       |
+|    u_pic_decoder                         |bmp_pic_decoder                                   |501     |63      |273     |0       |0       |
+|    u_scanner                             |fat32_library_scanner                             |1465    |109     |2135    |1       |0       |
+|    u_streamer                            |fat32_file_streamer                               |895     |104     |305     |0       |2       |
+|  seg_decoder_m0                          |seg_decoder                                       |28      |0       |0       |0       |0       |
+|  seg_scan_m0                             |seg_scan                                          |48      |9       |20      |0       |0       |
+|  sys_pll_m0                              |sys_pll                                           |1       |0       |0       |0       |0       |
+|  u_adjust_bar                            |adjust_bar_overlay                                |44      |20      |38      |0       |0       |
+|  u_audio_arc_calculate                   |audio_arc_calculate                               |43      |10      |47      |0       |0       |
+|  u_audio_spectrum                        |promax_audio_spectrum                             |844     |52      |436     |6       |2       |
+|  u_bc_adjust                             |brightness_contrast_adjust                        |92      |0       |0       |0       |3       |
+|  u_browser_overlay                       |library_browser_overlay                           |32      |19      |0       |0       |1       |
+|  u_checkpoint_snapshot                   |checkpoint_snapshot_cdc                           |12      |0       |82      |0       |0       |
+|  u_control                               |media_player_control                              |16      |0       |21      |0       |0       |
+|  u_fade_transition                       |video_fade_transition                             |33      |0       |20      |0       |0       |
+|  u_hdmi2phy_wrapper                      |hdmi_phy_wrapper                                  |35      |0       |47      |0       |0       |
+|    u0_lane_lvds_8_1                      |lane_lvds_10_1                                    |13      |0       |18      |0       |0       |
+|    u1_lane_lvds_8_1                      |lane_lvds_10_1                                    |10      |0       |12      |0       |0       |
+|    u2_lane_lvds_8_1                      |lane_lvds_10_1                                    |10      |0       |12      |0       |0       |
+|    u3_lane_lvds_8_1                      |lane_lvds_10_1                                    |2       |0       |5       |0       |0       |
+|  u_hdmi5x_reset                          |reset_sync                                        |0       |0       |2       |0       |0       |
+|  u_hdmi_1_4b_transmitter_core_wrapper    |hdmi_1_4b_transmitter_core_wrapper                |1283    |149     |1535    |16      |0       |
+|    u0_reset_sync                         |hdmi_1_4b_tx_reset_sync                           |0       |0       |2       |0       |0       |
+|    u_hdmi_edid_wrapper                   |hdmi_edid_wrapper                                 |198     |38      |155     |2       |0       |
+|      u_hdmi_edid_read_controller         |hdmi_edid_read_controller                         |10      |6       |11      |0       |0       |
+|      u_iic_master_wrapper                |iic_master_wrapper                                |188     |32      |144     |2       |0       |
+|        u_iic_bit_transmitter             |iic_bit_transmitter                               |80      |14      |31      |0       |0       |
+|        u_iic_transmitter_controller      |iic_transmitter_controller                        |108     |18      |113     |2       |0       |
+|          u_iic_w11_d1024_fifo            |iic_w11_d1024_fifo                                |27      |0       |55      |2       |0       |
+|    u_hdmi_tx_controller_wrapper          |hdmi_tx_controller_wrapper                        |1085    |111     |1378    |14      |0       |
+|      u0_hdmi_tmds_encode                 |hdmi_tmds_encode                                  |136     |30      |160     |0       |0       |
+|      u1_hdmi_tmds_encode                 |hdmi_tmds_encode                                  |129     |30      |108     |0       |0       |
+|      u2_hdmi_tmds_encode                 |hdmi_tmds_encode                                  |128     |30      |108     |0       |0       |
+|      u_hdmi_data_distribution            |hdmi_data_distribution                            |2       |0       |43      |0       |0       |
+|      u_hdmi_island_data_assemble         |hdmi_island_data_assemble                         |277     |0       |418     |0       |0       |
+|      u_hdmi_island_data_gen              |hdmi_island_data_gen                              |323     |5       |406     |11      |0       |
+|        U_audio_sample_packet_2_channel   |audio_sample_packet_2_channel                     |140     |5       |203     |11      |0       |
+|          u_w96_d1024_fifo                |w96_d1024_fifo                                    |24      |0       |55      |11      |0       |
+|          u_BCH_32_24_encode              |BCH_32_24_encode                                  |0       |0       |1       |0       |0       |
+|          u_BCH_64_56_encode              |BCH_64_56_encode                                  |0       |0       |8       |0       |0       |
+|        u_audio_clock_regeneration_packet |audio_clock_regeneration_packet                   |31      |0       |63      |0       |0       |
+|          u_BCH_64_56_encode              |BCH_64_56_encode                                  |0       |0       |8       |0       |0       |
+|      u_hdmi_video_data_assemble          |hdmi_video_data_assemble                          |0       |0       |40      |0       |0       |
+|      u_hdmi_video_source                 |hdmi_video_source                                 |63      |16      |38      |0       |0       |
+|      u_video_axi_stream_receiver         |video_axi_stream_receiver                         |27      |0       |57      |3       |0       |
+|        u_w24_d1024_fifo                  |w24_d1024_fifo                                    |25      |0       |55      |3       |0       |
+|  u_library_neighbor                      |library_neighbor_finder                           |38      |0       |33      |0       |0       |
+|  u_library_router                        |library_page_router                               |163     |0       |52      |0       |0       |
+|  u_loader                                |media_frame_loader                                |291     |68      |136     |2       |0       |
+|  u_lyric                                 |scrolling_lyric_overlay                           |1003    |75      |228     |6       |0       |
+|    g_large_text$u_text_ram               |ram32k_dp8                                        |2       |0       |1       |2       |0       |
+|    u_glyph_ram                           |ram32k_dp16                                       |59      |0       |1       |2       |0       |
+|  u_lyric_settings_cdc                    |checkpoint_snapshot_cdc                           |11      |0       |16      |0       |0       |
+|  u_mem_reset                             |reset_sync                                        |0       |0       |2       |0       |0       |
+|  u_music_equalizer                       |music_equalizer                                   |607     |116     |352     |0       |2       |
+|  u_osd_overlay                           |osd_overlay_24                                    |5       |5       |8       |0       |0       |
+|    u_osd                                 |status_osd_overlay                                |5       |5       |8       |0       |0       |
+|  u_param_osd                             |param_osd_overlay                                 |3       |0       |25      |0       |0       |
+|  u_pcm_media_tone                        |pcm_media_tone                                    |149     |26      |78      |0       |1       |
+|  u_playback_controls                     |playback_controls                                 |684     |129     |397     |0       |0       |
+|    n                                     |playback_gesture                                  |95      |19      |55      |0       |0       |
+|    p                                     |playback_gesture                                  |137     |26      |81      |0       |0       |
+|    v                                     |playback_gesture                                  |141     |26      |82      |0       |0       |
+|    vp                                    |playback_gesture                                  |82      |18      |50      |0       |0       |
+|    vvkey                                 |playback_gesture                                  |82      |18      |51      |0       |0       |
+|  u_playback_sequence                     |playback_sequence                                 |117     |0       |63      |0       |0       |
+|    g_library$core                        |playback_sequence_serial                          |117     |0       |63      |0       |0       |
+|  u_playback_status                       |playback_status_overlay                           |660     |63      |381     |0       |0       |
+|  u_position_clock                        |audio_position_clock                              |63      |0       |52      |0       |0       |
+|  u_reader                                |media_frame_reader                                |606     |129     |435     |8       |0       |
+|    u_prefetch                            |fifo_prefetch_2                                   |35      |0       |52      |0       |0       |
+|    u_read_fifo                           |rfifo_32_32_512                                   |65      |20      |96      |2       |0       |
+|      ram_inst                            |ram_infer_rfifo_32_32_512                         |0       |0       |0       |2       |0       |
+|      rd_to_wr_cross_inst                 |fifo_cross_domain_addr_process_al_rfifo_32_32_512 |16      |0       |36      |0       |0       |
+|      wr_to_rd_cross_inst                 |fifo_cross_domain_addr_process_al_rfifo_32_32_512 |15      |0       |36      |0       |0       |
+|  u_refresh_guard                         |sdram_refresh_guard                               |72      |13      |33      |0       |0       |
+|  u_resume_startup                        |resume_startup                                    |29      |0       |6       |0       |0       |
+|  u_resume_validator                      |resume_file_validator                             |137     |16      |73      |0       |0       |
+|  u_runtime_lyrics                        |runtime_lyric_manager                             |923     |73      |467     |3       |0       |
+|    u_decode_reset                        |reset_sync                                        |0       |0       |2       |0       |0       |
+|    u_lrc_decode                          |fat_lrc_loader                                    |601     |73      |332     |3       |0       |
+|      u_raw_ram                           |ram32k_dp8                                        |19      |0       |1       |2       |0       |
+|  u_sdcard_reset                          |reset_sync                                        |0       |0       |2       |0       |0       |
+|  u_startup_pulse                         |startup_pulse                                     |27      |11      |22      |0       |0       |
+|  u_sync_fade_gain                        |sync_fade_gain                                    |191     |0       |101     |0       |0       |
+|  u_sys_reset                             |reset_sync                                        |0       |0       |2       |0       |0       |
+|  u_thumb_ctrl                            |library_browser_controller                        |105     |0       |19      |0       |0       |
+|  u_thumbnail_layout                      |thumbnail_layout                                  |9       |9       |0       |0       |0       |
+|  u_timing                                |video_timing_ctrl                                 |28      |14      |23      |0       |0       |
+|  u_video_adapter                         |rgb_video_adapter                                 |1764    |0       |24      |0       |0       |
+|  u_video_reset                           |reset_sync                                        |0       |0       |2       |0       |0       |
+|  u_video_rgb_to_axis_640x480             |video_rgb_to_axis_640x480                         |2       |0       |28      |0       |0       |
+|  u_wav_player                            |fat_wav_player                                    |172     |30      |133     |8       |0       |
+|  u_write_cdc                             |media_sdram_write_cdc                             |79      |21      |102     |3       |0       |
+|    u_fifo                                |async_command_fifo                                |43      |7       |69      |3       |0       |
+|  video_pll_m0                            |video_pll                                         |0       |0       |0       |0       |0       |
++------------------------------------------------------------------------------------------------------------------------------------------+

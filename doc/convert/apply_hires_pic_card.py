@@ -1,0 +1,100 @@
+# -*- coding: utf-8 -*-
+"""Validate, back up and apply the high-resolution PIC1/PIC3 cover update.
+
+Dry-run by default. Only PIC1.BMP and PIC3.BMP are written; no other PIC,
+WAV, LRC, FONT.BIN or MENU.BMP is touched. Staged bytes must equal a fresh
+no-resize conversion of the manifest-verified archived JPEG. Both originals
+are backed up and hash-checked first; any post-write mismatch restores both.
+"""
+import argparse
+import hashlib
+import json
+import shutil
+from pathlib import Path
+
+from prepare_hires_pic_card import SPECS, canonical_bmp_bytes, check_bmp, manifest_entry
+
+HERE = Path(__file__).resolve().parent
+TARGETS = ["PIC1.BMP", "PIC3.BMP"]
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def validate(card, staged, sources=HERE / "cover_sources", specs=None):
+    specs = specs or SPECS
+    if set(specs) != set(TARGETS):
+        raise ValueError("specs must cover exactly PIC1.BMP and PIC3.BMP")
+    card, staged, sources = Path(card), Path(staged), Path(sources)
+    card_resolved, staged_resolved = card.resolve(), staged.resolve()
+    if card_resolved == staged_resolved or card_resolved in staged_resolved.parents:
+        raise ValueError("staging must be separate from the card")
+    for name in TARGETS:
+        if not (card / name).is_file() or not (staged / name).is_file():
+            raise ValueError(f"missing card or staged file: {name}")
+    hashes = {}
+    for name in TARGETS:
+        number, width, height = specs[name]
+        archive = manifest_entry(sources, number, width, height)
+        staged_path = staged / name
+        check_bmp(staged_path, width, height)
+        if staged_path.read_bytes() != canonical_bmp_bytes(archive, width, height):
+            raise ValueError(f"{name}: staged BMP does not match the archived "
+                             "JPEG conversion")
+        hashes[name] = digest(staged_path)
+    return hashes
+
+
+def apply(card, staged, backup, sources=HERE / "cover_sources", specs=None):
+    card, staged, backup = Path(card), Path(staged), Path(backup)
+    if backup.exists():
+        raise ValueError(f"backup directory already exists: {backup}")
+    staged_hashes = validate(card, staged, sources, specs)
+    original_hashes = {name: digest(card / name) for name in TARGETS}
+    backup.mkdir(parents=True, exist_ok=False)
+    for name in TARGETS:
+        shutil.copyfile(card / name, backup / name)
+        if digest(backup / name) != original_hashes[name]:
+            raise RuntimeError(f"backup verification failed: {name}; card not changed")
+    (backup / "manifest.json").write_text(json.dumps({
+        "card_root": str(card), "staged_root": str(staged),
+        "original_sha256": original_hashes, "staged_sha256": staged_hashes,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+    try:
+        for name in TARGETS:
+            shutil.copyfile(staged / name, card / name)
+        for name in TARGETS:
+            if digest(card / name) != staged_hashes[name]:
+                raise RuntimeError(f"card readback mismatch: {name}")
+    except Exception:
+        for name in TARGETS:
+            shutil.copyfile(backup / name, card / name)
+        for name in TARGETS:
+            if digest(card / name) != original_hashes[name]:
+                raise RuntimeError(f"rollback verification failed: {name}")
+        raise
+    validate(card, staged, sources, specs)
+    return backup
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--card-root", type=Path, default=Path("E:/"))
+    parser.add_argument("--staging", type=Path,
+                        default=HERE / "staging_hires_pic13_20261025")
+    parser.add_argument("--sources", type=Path, default=HERE / "cover_sources")
+    parser.add_argument("--backup", type=Path,
+                        default=HERE.parent.parent / "backups" / "card_before_hires_pic13_20261025")
+    parser.add_argument("--apply", action="store_true")
+    args = parser.parse_args()
+    if not args.apply:
+        hashes = validate(args.card_root, args.staging, args.sources)
+        print(f"DRY-RUN OK: {len(hashes)} files validated; card not changed")
+        return
+    backup = apply(args.card_root, args.staging, args.backup, args.sources)
+    print(f"UPDATED AND READ BACK: {len(TARGETS)} files; backup: {backup}")
+
+
+if __name__ == "__main__":
+    main()

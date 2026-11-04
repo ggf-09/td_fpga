@@ -1,0 +1,3 @@
+`define SCR_LRC_SIZE 3882
+`define SCR_SECOND_SIZE 1420
+`define SCR_CHARS 2375

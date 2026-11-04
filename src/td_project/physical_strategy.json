@@ -1,0 +1,71 @@
+{
+  "seed": 51,
+  "official_strategy": "CongestionHigh",
+  "params": [
+    {
+      "step": "place",
+      "param": "opt_timing",
+      "val": "high"
+    },
+    {
+      "step": "place",
+      "param": "ofv",
+      "val": "70"
+    },
+    {
+      "step": "place",
+      "param": "opt_max_density",
+      "val": "50"
+    },
+    {
+      "step": "place",
+      "param": "target_density",
+      "val": "0.6"
+    },
+    {
+      "step": "place",
+      "param": "target_density_pp",
+      "val": "0.7"
+    },
+    {
+      "step": "place",
+      "param": "aggressive_opt",
+      "val": "20"
+    },
+    {
+      "step": "place",
+      "param": "enhanced_beeline_opt",
+      "val": "2"
+    },
+    {
+      "step": "place",
+      "param": "enhanced_gp",
+      "val": "on"
+    },
+    {
+      "step": "place",
+      "param": "non_crit_opt",
+      "val": "on"
+    },
+    {
+      "step": "place",
+      "param": "post_place_opt",
+      "val": "high"
+    },
+    {
+      "step": "place",
+      "param": "enable_congestion_recovery",
+      "val": "on"
+    },
+    {
+      "step": "route",
+      "param": "post_route_opt",
+      "val": "high"
+    },
+    {
+      "step": "route",
+      "param": "swap_pin",
+      "val": "off"
+    }
+  ]
+}
